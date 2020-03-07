@@ -13,9 +13,19 @@ void setup(){
 }
 
 void loop(){
+  //Serial.println('sequencia normal');
   for(int i = primeiraPortaLed; i <= ultimaPortaLed; i++){
     digitalWrite(i, HIGH);    
-    delay(300);
+    delay(700);
+    //digitalWrite(i, LOW);
+  }
+
+//  Serial.println('sequencia ao contrario');
+  for(int i = ultimaPortaLed; i >= primeiraPortaLed; i--){
+    //digitalWrite(i, HIGH);    
+    delay(700);
     digitalWrite(i, LOW);
   }
+
+  delay(700);
 }
