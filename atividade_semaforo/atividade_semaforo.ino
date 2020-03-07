@@ -6,7 +6,7 @@ int botao = 10;
 int tempo = 1000;
 int tempoPedestre = 2000;
 
-//int escutaLeitura; 
+int escutaLeitura;
 
 void setup()
 {
@@ -41,7 +41,7 @@ void loop()
 }
 
 void lerBotao(){
-  int escutaLeitura = digitalRead(botao);
+  escutaLeitura = digitalRead(botao);
 
   if(escutaLeitura == 1)
   {
