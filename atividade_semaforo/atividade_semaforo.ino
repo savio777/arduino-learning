@@ -3,8 +3,10 @@ int vermelho = 12;
 int amarelo = 11;
 int botao = 10;
 
-int tempo = 500;
+int tempo = 1000;
 int tempoPedestre = 2000;
+
+//int escutaLeitura; 
 
 void setup()
 {
@@ -16,12 +18,34 @@ void setup()
 }
 
 void loop()
-{
+{    
+  lerBotao();
+
+  digitalWrite(vermelho, 0);
+  digitalWrite(verde, 1);
+
+  lerBotao();
+
+  delay(tempo);
+  digitalWrite(amarelo, 1);
+
+  lerBotao();
+
+  delay(tempo);
+  digitalWrite(amarelo, 0);
+  digitalWrite(vermelho, 1);
+  digitalWrite(verde, 0);
+  delay(tempo);
+
+  lerBotao();
+}
+
+void lerBotao(){
   int escutaLeitura = digitalRead(botao);
-    
+
   if(escutaLeitura == 1)
   {
-    Serial.println("pedestre apertou");
+    Serial.println("apertou");
     digitalWrite(amarelo, 1);
     delay(tempo);
     digitalWrite(amarelo, 0);
@@ -35,18 +59,6 @@ void loop()
     digitalWrite(vermelho, 1);
     digitalWrite(amarelo, 0);
     digitalWrite(verde, 0);
-    delay(tempoPedestre+100);
-  }else{
-    digitalWrite(vermelho, 0);
-    digitalWrite(verde, 1);
-    
-    delay(tempo);
-    digitalWrite(amarelo, 1);
-    
-    delay(tempo);
-    digitalWrite(amarelo, 0);
-    digitalWrite(vermelho, 1);
-    digitalWrite(verde, 0);
-    delay(tempo);
+    delay(tempoPedestre);
   }
 }
